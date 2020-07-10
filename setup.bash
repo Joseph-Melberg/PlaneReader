@@ -6,6 +6,6 @@ if [[ $UID != 0 ]]; then
 fi
 sudo apt-get update 
 sudo apt-get upgrade -y
-sudo apt-get install autossh dump1090-mutability socat
-
+sudo apt-get install autossh dump1090-mutability socat screen -y 
+mv dump1090-mutability /etc/default/dump1090-mutability
 
