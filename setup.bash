@@ -7,6 +7,12 @@ fi
 sudo apt-get update 
 sudo apt-get upgrade -y
 sudo apt-get install autossh dump1090-mutability socat screen -y 
-mv /etc/default/dump1090-mutability /etc/default/dump1090-mutability.bak
-mv dump1090-mutability /etc/default/dump1090-mutability
-echo "@reboot screen -dmS Connector bash "$PWD"airplaneConnect.bash"
+sudo mv /etc/default/dump1090-mutability /etc/default/dump1090-mutability.bak
+sudo mv dump1090-mutability /etc/default/dump1090-mutability
+crontab -l > mycron
+echo "@reboot screen -dmS Connector bash "$PWD"/airplaneConnect.bash" >> mycron
+echo "@reboot screen -dmS Reverse bash "$PWD"/reverseSSH.bash" >> mycron
+crontab mycron
+rm mycron
+ssh-keygen
+ssh-copy-id jbmelberg@centurionx.net
