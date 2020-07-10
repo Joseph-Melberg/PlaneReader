@@ -4,3 +4,8 @@ if [[ $UID != 0 ]]; then
     echo "sudo $0 $*"
     exit 1
 fi
+sudo apt-get update 
+sudo apt-get upgrade -y
+sudo apt-get install autossh dump1090-mutability socat
+
+
