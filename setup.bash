@@ -16,3 +16,4 @@ crontab mycron
 rm mycron
 ssh-keygen
 ssh-copy-id jbmelberg@centurionx.net
+echo "Remember to change the port for reverseSSH.bash"
