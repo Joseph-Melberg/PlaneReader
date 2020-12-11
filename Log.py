@@ -7,7 +7,8 @@ import json
 import time
 import uuid
 import sys
-
+import socket
+deviceName = socket.gethostname()
 print(str(sys.argv))
 severity = sys.argv[1]
 title = sys.argv[2]
@@ -15,9 +16,8 @@ if(len(title)!=36):
     title = str(uuid.uuid1())
 
 
-deviceName = sys.argv[3]
-processName = sys.argv[4]
-messageText = sys.argv[5]
+processName = sys.argv[3]
+messageText = sys.argv[4]
 
 
 def system_call(command):
