@@ -1,10 +1,12 @@
 #!/bin/bash
-echo "Forming Connection"
-
+cd $(dirname $BASH_SOURCE)
 sleep 60
+echo "Forming Connection"
 while true
 do
-autossh -N -R 7004:localhost:22 jbmelberg@centurionx.net
+./Log.py INFO gen Homebase reverseSSH  "Tunnel open attempted: $1:localhost:22"
+ssh -N -R $1:localhost:22 jump@jump.centurionx.net
+./Log.py INFO gen Homebase reverseSSH  "Tunnel closed" 
 sleep 60
 done
 
